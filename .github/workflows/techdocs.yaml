@@ -1,14 +1,14 @@
 name: Publish TechDocs Site
 
 on:
-  workflow_dispatch
-#   push:
-#     branches:
-#       - main
-#     paths:
-#       - 'docs/**'
-#       - 'mkdocs.yml'
-#       - '.github/workflows/techdocs.yaml'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - ".github/workflows/techdocs.yaml"
 
 jobs:
   publish-techdocs-site:
@@ -23,7 +23,7 @@ jobs:
           entity-name: ai-starter-template
           entity-kind: Component #(default=Component)
           entity-namespace: default # (default="default")
-          publisher-type: 'azureBlobStorage' #'awsS3'
-          storage-name: 'techdocs' # aws=BucketName, azure=ContainerName
+          publisher-type: "azureBlobStorage" #'awsS3'
+          storage-name: "techdocs" # aws=BucketName, azure=ContainerName
           azure-account-name: ${{ secrets.AZ_STOR_ACCOUNT_NAME }}
           azure-account-key: ${{ secrets.AZ_STOR_ACCOUNT_KEY }}
